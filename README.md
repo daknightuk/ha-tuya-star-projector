@@ -1,11 +1,9 @@
-# Tuya Star Projector for Home Assistant
+# Tuya Star Projector Integration for Home Assistant
 
 A Home Assistant custom integration for direct, local control of Tuya and
 Smart Life SK20-style star projectors.
 
-It communicates with the projector over your local network, so Homebridge,
-Apple HomeKit, the Tuya Home Assistant integration, LocalTuya, and Tuya Local
-are not required.
+It communicates directly with the projector over your local network, so Homebridge, Apple HomeKit, custom ESP firmware, the official Tuya Home Assistant integration, LocalTuya, and Tuya Local are not required.
 
 ## Features
 

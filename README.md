@@ -186,7 +186,7 @@ address must not change.
 2. Find **DHCP reservation**, **Address reservation**, **Static lease**, or a
    similarly named page.
 3. Create a reservation for the projector using the MAC address obtained from
-   Smart Life.
+   Smart Life. **NOTE: It will not be called Star Projector, in my case it was wlan0**
 4. Assign the IP address that you intend to enter into Home Assistant.
 5. Save/apply the router configuration.
 6. **Power-cycle the projector**: disconnect its power, wait several seconds,

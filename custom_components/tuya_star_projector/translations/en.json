@@ -1,0 +1,22 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to a Tuya star projector",
+        "description": "Enter the projector's LAN address and local Tuya credentials.",
+        "data": {
+          "name": "Name",
+          "host": "IP address",
+          "device_id": "Device ID",
+          "local_key": "Local key"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not connect or authenticate. Check the IP address, device ID, and local key."
+    },
+    "abort": {
+      "already_configured": "This projector is already configured."
+    }
+  }
+}

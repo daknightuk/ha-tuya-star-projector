@@ -1,5 +1,7 @@
 """Rotation control for Tuya Star Projector."""
 
+from typing import Any
+
 from homeassistant.components.fan import FanEntity, FanEntityFeature
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
@@ -41,8 +43,14 @@ class ProjectorRotationFan(StarProjectorEntity, FanEntity):
         raw = int(self.coordinator.data.get(DP_ROTATION, 10))
         return 0 if raw <= 10 else ranged_value_to_percentage(SPEED_RANGE, raw)
 
-    async def async_turn_on(self, percentage=None, **kwargs) -> None:
-        await self.async_set_percentage(percentage or 100)
+    async def async_turn_on(
+        self,
+        percentage: int | None = None,
+        preset_mode: str | None = None,
+        **kwargs: Any,
+    ) -> None:
+        """Turn on rotation at the requested speed or full speed."""
+        await self.async_set_percentage(percentage if percentage is not None else 100)
 
     async def async_turn_off(self, **kwargs) -> None:
         await self.coordinator.async_set(DP_ROTATION, 10)

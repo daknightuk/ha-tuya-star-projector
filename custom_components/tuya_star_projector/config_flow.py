@@ -11,13 +11,16 @@ from homeassistant import config_entries
 from homeassistant.const import CONF_HOST, CONF_NAME
 from homeassistant.core import HomeAssistant
 from homeassistant.data_entry_flow import FlowResult
+from homeassistant.helpers.selector import SelectSelector, SelectSelectorConfig
 
 from .const import (
     CONF_DEVICE_ID,
     CONF_LOCAL_KEY,
+    CONF_PROTOCOL_VERSION,
     DEFAULT_NAME,
+    DEFAULT_PROTOCOL_VERSION,
     DOMAIN,
-    PROTOCOL_VERSION,
+    PROTOCOL_VERSIONS,
 )
 
 
@@ -29,7 +32,7 @@ async def _test_connection(hass: HomeAssistant, data: dict[str, Any]) -> None:
             data[CONF_DEVICE_ID],
             data[CONF_HOST],
             data[CONF_LOCAL_KEY],
-            version=PROTOCOL_VERSION,
+            version=float(data[CONF_PROTOCOL_VERSION]),
         )
         device.set_socketTimeout(5)
         result = device.status()
@@ -72,6 +75,9 @@ class TuyaStarProjectorConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 vol.Required(CONF_HOST): str,
                 vol.Required(CONF_DEVICE_ID): str,
                 vol.Required(CONF_LOCAL_KEY): str,
+                vol.Required(
+                    CONF_PROTOCOL_VERSION, default=DEFAULT_PROTOCOL_VERSION
+                ): SelectSelector(SelectSelectorConfig(options=PROTOCOL_VERSIONS)),
             }
         )
         return self.async_show_form(

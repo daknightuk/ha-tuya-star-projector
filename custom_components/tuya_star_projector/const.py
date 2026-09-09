@@ -5,9 +5,11 @@ PLATFORMS = ["light", "fan", "switch", "select", "number"]
 
 CONF_DEVICE_ID = "device_id"
 CONF_LOCAL_KEY = "local_key"
+CONF_PROTOCOL_VERSION = "protocol_version"
 
 DEFAULT_NAME = "Star Projector"
-PROTOCOL_VERSION = 3.5
+PROTOCOL_VERSIONS = ["3.1", "3.2", "3.3", "3.4", "3.5"]
+DEFAULT_PROTOCOL_VERSION = "3.5"
 
 DP_POWER = "20"
 DP_MODE = "21"

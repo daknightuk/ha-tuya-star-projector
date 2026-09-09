@@ -93,6 +93,7 @@ After installation:
    - The projector's local IP address
    - Its Tuya device ID (`tuyaId`)
    - Its Tuya local key (`tuyaKey`/`local_key`)
+   - The Tuya protocol version to use
 
 The integration tests the local connection before saving the configuration.
 
@@ -222,6 +223,7 @@ access is not required for normal local control after configuration.
 - Power-cycle the projector after creating or changing the reservation.
 - Ensure Home Assistant and the projector can communicate across any VLAN or
   firewall rules.
+- Verify the Tuya protocol that your device supports and select it when adding the integration (see [here](https://github.com/daknightuk/ha-tuya-star-projector/issues/3#issuecomment-5601331526)).
 
 ### Power works but another control does not
 

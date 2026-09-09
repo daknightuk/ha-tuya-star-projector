@@ -8,7 +8,8 @@
           "name": "Name",
           "host": "IP address",
           "device_id": "Device ID",
-          "local_key": "Local key"
+          "local_key": "Local key",
+          "protocol_version": "Protocol version"
         }
       }
     },

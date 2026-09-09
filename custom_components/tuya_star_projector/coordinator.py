@@ -21,8 +21,9 @@ from homeassistant.helpers.update_coordinator import (
 from .const import (
     CONF_DEVICE_ID,
     CONF_LOCAL_KEY,
+    CONF_PROTOCOL_VERSION,
+    DEFAULT_PROTOCOL_VERSION,
     DOMAIN,
-    PROTOCOL_VERSION,
 )
 
 _LOGGER = logging.getLogger(__name__)
@@ -45,7 +46,9 @@ class StarProjectorCoordinator(DataUpdateCoordinator[dict[str, Any]]):
             entry.data[CONF_DEVICE_ID],
             entry.data[CONF_HOST],
             entry.data[CONF_LOCAL_KEY],
-            version=PROTOCOL_VERSION,
+            version=float(
+                entry.data.get(CONF_PROTOCOL_VERSION, DEFAULT_PROTOCOL_VERSION)
+            ),
         )
         self.device.set_socketTimeout(5)
         self.device.set_socketPersistent(False)
